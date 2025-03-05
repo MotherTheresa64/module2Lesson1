@@ -1,86 +1,106 @@
-# ## Exercise 1: Practice Creating Sets ------------------------->
+# Lesson 1: Sets
 
-# 1. Create a list of your favorite hobbies, making sure to repeat a few of them.
-# 2. Convert the list into a set to automatically remove the duplicates.
-# 3. Print both the original list and the set to compare.
+# ===========================
+# engage and apply ---------> Exercise 1 pre-provided
+# ===========================
 
-hobbies = ["reading", "writing", "swimming", "reading", "cooking", "swimming", "hiking", "swimming"]
+# Pre-provided Exercise: Create a list with multiple items, convert it to a set, and 
+# automatically remove duplicates. Print both the list and the resulting set.
+
+alist = ['item', 'item', 'stuff', 'thing', 'oddity']
+set_list = set(alist)  # Converting list to a set
+print("Original List:", alist)
+print("Set with Duplicates Removed:", set_list)
+
+# ===========================
+# engage and apply ---------> Exercise 1 My Version Created
+# ===========================
+
+# My Version: Create a list with multiple hobbies, some repeated, 
+# convert it to a set to remove duplicates, and print the original and the resulting set.
+
+hobbies = ['coding', 'traveling', 'photography', 'traveling', 'reading', 'photography']
 hobbies_set = set(hobbies)
 print("Original List:", hobbies)
 print("Set with Duplicates Removed:", hobbies_set)
 
-# ## Exercise 2: Loop Through a Set ------------------------->
+# ===========================
+# engage and apply ---------> Exercise 2 pre-provided
+# ===========================
 
-# 1. Create a set of your top 5 favorite books or movies.
-# 2. Write a for loop to print each item in the set.
+# Pre-provided Exercise: Create a set of fruit names and loop through the set to print each element.
 
-favorite_movies = {"Inception", "The Matrix", "The Shawshank Redemption", "The Dark Knight", "Pulp Fiction"}
-for movie in favorite_movies:
-    print(movie)
+aset = {'apple', 'orange', 'banana'}
+for fruit in aset:
+    print(fruit)
 
-# ## Exercise 3: Set Modification Practice ------------------------->
+# ===========================
+# engage and apply ---------> Exercise 2 My Version Created
+# ===========================
 
-# 1. Create a set of at least 4 of your favorite foods.
-# 2. Add one more food item to the set.
-# 3. Write code to check if a specific food item is in the set, then print the result.
+# My Version: Create a set of favorite books, loop through the set, 
+# and print each book name.
 
-favorite_foods = {"pizza", "sushi", "tacos", "pasta"}
-favorite_foods.add("burger")
-food_to_check = "sushi"
-if food_to_check in favorite_foods:
-    print(f"Yes, {food_to_check} is in the set.")
+favorite_books = {'1984', 'Brave New World', 'Fahrenheit 451', 'The Catcher in the Rye', 'To Kill a Mockingbird'}
+for book in favorite_books:
+    print(book)
 
-# ## Exercise 4: Comparing Sets ------------------------->
+# ===========================
+# final challenge ---------> pre-provided
+# ===========================
 
-# 1. Create two sets of your favorite sports or hobbies.
-# 2. Check if one set is a subset of the other.
-# 3. Check if one set is a superset of the other.
+# Pre-provided Final Challenge: Create a set with at least 6 elements, 
+# add an element, check for membership, and perform set operations like union, intersection, and difference.
 
-set1 = {"reading", "writing", "swimming"}
-set2 = {"reading", "swimming", "hiking"}
-print(set1.issubset(set2))  # Is set1 a subset of set2?
-print(set1.issuperset(set2))  # Is set1 a superset of set2?
+my_set = {'superman', 'batman', 'wonder woman', 'the flash', 'green lantern'}
 
+# Add a new element to the set
+my_set.add('aquaman')
+print("Updated Set:", my_set)
 
-# ## Exercise 5: Working with Set Operations ------------------------->
+# Membership check
+print('superman' in my_set)  # Output: True
+print('spiderman' in my_set)  # Output: False
 
-# 1. Create two sets of your favorite vacation destinations.
-# 2. Use union to find all the unique destinations.
-# 3. Use intersection to find common destinations.
-# 4. Use difference to find destinations unique to one of your sets.
+# Set Operations
+set1 = {1, 2, 3, 4}
+set2 = {3, 4, 5, 6}
 
-vacation_set1 = {"Paris", "Tokyo", "Rome", "Bali"}
-vacation_set2 = {"Tokyo", "Bali", "New York", "London"}
-unique_destinations = vacation_set1.union(vacation_set2)
-common_destinations = vacation_set1.intersection(vacation_set2)
-unique_set1 = vacation_set1.difference(vacation_set2)
+# Union
+print("Union:", set1.union(set2))  # Output: {1, 2, 3, 4, 5, 6}
 
-# ## Final Challenge: Email List Deduplication ------------------------->
+# Intersection
+print("Intersection:", set1.intersection(set2))  # Output: {3, 4}
 
-# You have two email lists, but some people may be in both. Write a function to:
-# 1. Remove duplicates.
-# 2. Show which emails exist in both lists.
-# 3. Show emails that are unique to each list.
+# Difference
+print("Difference:", set1.difference(set2))  # Output: {1, 2}
 
-def clean_email_lists(list1, list2):
-    set1 = set(list1)
-    set2 = set(list2)
-    
-    # Remove duplicates and merge
-    all_unique = set1.union(set2)
-    print("All unique emails:", all_unique)
-    
-    # Common emails
-    common_emails = set1.intersection(set2)
-    print("Emails in both lists:", common_emails)
-    
-    # Emails unique to each list
-    unique_emails = set1.symmetric_difference(set2)
-    print("Emails unique to each list:", unique_emails)
+# ===========================
+# final challenge ---------> My Version Created
+# ===========================
 
-email_list1 = ['a@example.com', 'b@example.com', 'a@example.com']
-email_list2 = ['b@example.com', 'c@example.com', 'd@example.com']
+# My Version: Create a set of favorite foods, 
+# add a food item, check for membership, and perform set operations like union, intersection, and difference.
 
-clean_email_lists(email_list1, email_list2)
+foods = {'pizza', 'sushi', 'pasta', 'ice cream'}
 
+# Add a new item to the set
+foods.add('burger')
+print("Updated Set:", foods)
 
+# Membership check
+print('pasta' in foods)  # Output: True
+print('salad' in foods)  # Output: False
+
+# Set Operations
+set1 = {'pizza', 'sushi', 'burger'}
+set2 = {'burger', 'pasta', 'ice cream'}
+
+# Union
+print("Union:", set1.union(set2))  # Output: {'pizza', 'sushi', 'burger', 'pasta', 'ice cream'}
+
+# Intersection
+print("Intersection:", set1.intersection(set2))  # Output: {'burger'}
+
+# Difference
+print("Difference:", set1.difference(set2))  # Output: {'pizza', 'sushi'}
