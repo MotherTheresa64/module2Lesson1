@@ -1,70 +1,108 @@
 # Lesson 1: Introduction to Python Sets
 
 # Overview:
-# In this lesson, we explore Python sets, a collection data type that stores unique elements. 
-# Sets are unordered, meaning their elements do not have a defined order, and they automatically 
-# remove duplicate items. Sets are particularly useful when we need to eliminate duplicates 
-# and perform set operations like union, intersection, and difference.
+# Sets are a special collection data type in Python, used for storing unique items. They are unordered, mutable, 
+# and automatically remove duplicate elements. Sets do not support indexing, so you cannot access items by index.
+# Instead, you can loop through sets or check for membership.
 
-# Key Concepts:
+# 1. Creating Sets:
+# To create a set, use curly braces or the `set()` function.
 
-# 1. **Creating a Set**:
-# Sets can be created in several ways:
-# - Using curly braces {} with comma-separated values:
-my_set = {1, 2, 3, 4}
-# - Using the set() constructor to create an empty set or convert other iterables:
-empty_set = set()  # Creates an empty set
-list_set = set([1, 2, 2, 3])  # Converts a list to a set and removes duplicates
-print(list_set)  # Output: {1, 2, 3}
+# Example 1: Creating an empty set
+empty_set = set()
+print(type(empty_set))  # Output: <class 'set'>
 
-# 2. **Adding and Removing Items**:
-# Sets allow you to add elements using the .add() method and remove them using .remove() or .discard().
-my_set.add(5)  # Adds 5 to the set
-print(my_set)  # Output: {1, 2, 3, 4, 5}
+# Example 2: Creating a set with values (duplicates are automatically removed)
+new_set = {'one', 'two', 'three'}
+print(new_set)  # Output: {'one', 'two', 'three'}
 
-# The .remove() method will raise a KeyError if the item is not found, while .discard() won't.
-my_set.remove(3)  # Removes 3 from the set
-print(my_set)  # Output: {1, 2, 4, 5}
+# 2. Working with Lists, Tuples, and Dictionaries:
+# Sets are helpful for removing duplicates from other collections like lists, tuples, or dictionaries.
 
-# 3. **Set Operations**:
-# Sets support several useful operations like union, intersection, and difference.
-set1 = {1, 2, 3, 4}
-set2 = {3, 4, 5, 6}
+# Example: Converting a list to a set
+alist = ['item', 'item', 'stuff', 'thing', 'oddity']
+set_list = set(alist)
+print(set_list)  # Output: {'stuff', 'item', 'thing', 'oddity'}
 
-# Union: Combines two sets and removes duplicates.
-union_set = set1.union(set2)
-print(union_set)  # Output: {1, 2, 3, 4, 5, 6}
+# 3. Looping Over Sets:
+# Since sets are unordered, you can't use indexing to access their elements.
+# However, you can iterate over a set using a for loop.
 
-# Intersection: Returns the elements that are common in both sets.
-intersection_set = set1.intersection(set2)
-print(intersection_set)  # Output: {3, 4}
+# Example: Looping over a set
+aset = {'apple', 'orange', 'banana'}
+for fruit in aset:
+    print(fruit)  # Order may vary
 
-# Difference: Returns elements that are in set1 but not in set2.
-difference_set = set1.difference(set2)
-print(difference_set)  # Output: {1, 2}
+# 4. Set Methods:
+# Python provides several useful methods to work with sets.
 
-# 4. **Membership Test**:
-# You can check if an element exists in a set using the 'in' keyword:
-print(3 in set1)  # Output: True
-print(7 in set1)  # Output: False
+# Membership Checks:
+# Use the `in` keyword to check if an element exists in a set.
 
-# 5. **Set Methods**:
-# Sets come with useful methods such as .add(), .remove(), .discard(), .pop(), .clear(), .copy(), etc.
-# - .pop() removes and returns an arbitrary element (since sets are unordered).
-# - .clear() removes all elements from the set.
-# - .copy() creates a shallow copy of the set.
+my_set = {'superman', 'batman', 'wonder woman', 'the flash'}
+print('superman' in my_set)  # Output: True
+print('spiderman' in my_set)  # Output: False
 
-# 6. **Set Comprehension**:
-# Similar to list comprehension, you can create sets using a set comprehension:
-squared_set = {x ** 2 for x in range(5)}
-print(squared_set)  # Output: {0, 1, 4, 9, 16}
+# Adding Items to a Set:
+# You can add elements to a set using the `.add()` method.
+my_set.add('green lantern')
+print(my_set)  # Output: {'superman', 'batman', 'wonder woman', 'the flash', 'green lantern'}
 
-# 7. **Frozen Sets**:
-# A frozen set is an immutable version of a set. You cannot add or remove elements from a frozen set.
-frozen_set = frozenset([1, 2, 3, 4])
-print(frozen_set)  # Output: frozenset({1, 2, 3, 4})
+# 5. Advanced Set Methods:
+# Comparing sets or performing operations on them is easy in Python.
 
-# Final Challenge:
-# The final challenge helps reinforce your understanding of sets by requiring you to:
-# - Create sets, add elements, check for membership, and perform set operations like union, intersection, and difference.
-# - You will also practice using some of the useful set methods like .add(), .remove(), and .pop().
+# Subset and Superset:
+# - `issubset()`: Check if all elements of one set are in another.
+# - `issuperset()`: Check if one set contains all elements of another.
+
+set1 = {1, 2, 3}
+set2 = {1, 2, 3, 4, 5}
+
+print(set1.issubset(set2))  # Output: True
+print(set2.issuperset(set1))  # Output: True
+
+# Set Operations:
+# - Union: Combines all unique items from two sets.
+# - Intersection: Returns only the items both sets have in common.
+# - Difference: Returns the items in one set but not the other.
+# - Symmetric Difference: Returns items unique to each set.
+
+set3 = {1, 2, 3, 4}
+set4 = {3, 4, 5, 6}
+
+# Union
+print(set3.union(set4))  # Output: {1, 2, 3, 4, 5, 6}
+
+# Intersection
+print(set3.intersection(set4))  # Output: {3, 4}
+
+# Difference
+print(set3.difference(set4))  # Output: {1, 2}
+
+# Symmetric Difference
+print(set3.symmetric_difference(set4))  # Output: {1, 2, 5, 6}
+
+# 6. Final Challenge - Email List Deduplication:
+# We can use sets to handle tasks such as deduplicating email lists or finding common emails between two lists.
+
+def clean_email_lists(list1, list2):
+    set1 = set(list1)
+    set2 = set(list2)
+
+    # Remove duplicates and merge
+    all_unique = set1.union(set2)
+    print("All unique emails:", all_unique)
+
+    # Common emails
+    common_emails = set1.intersection(set2)
+    print("Emails in both lists:", common_emails)
+
+    # Emails unique to each list
+    unique_emails = set1.symmetric_difference(set2)
+    print("Emails unique to each list:", unique_emails)
+
+# Example usage
+email_list1 = ['a@example.com', 'b@example.com', 'a@example.com']
+email_list2 = ['b@example.com', 'c@example.com', 'd@example.com']
+
+clean_email_lists(email_list1, email_list2)
